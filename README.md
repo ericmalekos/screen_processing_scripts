@@ -1,11 +1,11 @@
 # CRISPR Screen Processing Scripts
 
 R scripts for processing guide-Seq counts. Input expected to be raw counts from
-`mageck count`. Scripts should be run in order.
+`mageck count`. Scripts should be run in order.  
 
 ### Scripts
 
-#### `PrepareScreenCounts.R`
+#### PrepareScreenCounts.R
 
 This script should be run in an interactive RStudio environment.  
 Functions for normalizing counts, checking positive controls, plotting PCA and
@@ -25,14 +25,14 @@ library(tidyr)
 library(reshape)
 ```
 
-#### `MAUDEAnalysis.R`
+#### MAUDEAnalysis.R
 
-Perform single-sample MAUDE analysis using output from `PrepareScreenCounts.R`.
+Perform single-sample MAUDE analysis using output from `PrepareScreenCounts.R`.  
 All ".tsv" files in "/Counts/" subdirectories are included. `binStats.txt` path
-is hard coded currently.
+is hard coded currently.  
 
-Input: */Counts/<previous output>.tsv; binStats.txt
-Output: MAUDE output at the element `_guideLevelStats.tsv` and gene level `_geneLevelStats.tsv`
+Input: */Counts/<previous output>.tsv; binStats.txt  
+Output: MAUDE output at the element `_guideLevelStats.tsv` and gene level `_geneLevelStats.tsv`  
 
 ##### Example
 
@@ -43,14 +43,14 @@ Output: MAUDE output at the element `_guideLevelStats.tsv` and gene level `_gene
 library(MAUDE)
 ```
 
-#### `PlotRankedGenes.R`
+#### PlotRankedGenes.R
 
 Plot ranked gene significanceZ scores for all genes from MAUDE analysis. Genes with
 sigZ > 3 or < -3 are in red. A comma separated list of genes can be added for additional
-highlighting.
+highlighting.  
 
-Input: directory to search; tsv suffix pattern; gene names for highlighting
-Output: ranked gene .png
+Input: directory to search; tsv suffix pattern; gene names for highlighting  
+Output: ranked gene .png  
 
 ##### Example
 
@@ -65,15 +65,15 @@ library(dplyr)
 library(ggrepel)
 ```
 
-#### `CorrelationPlotting.R`
+#### CorrelationPlotting.R
 
 Generates scatterplots by plotting gene significanceZ score pairwise amongst all
 input files. Only the top "n" (second argument) most significant are plotted and
 used for correlation calculation. Some genes are hard coded to be included whether
-or not they are in the top "n" genes.
+or not they are in the top "n" genes.  
 
-Input: comma separated list of MAUDE output tsvs; number of genes to plot; output file name
-Output: output png with pairwise scatterplots of all inputs and pearson correlations
+Input: comma separated list of MAUDE output tsvs; number of genes to plot; output file name  
+Output: output png with pairwise scatterplots of all inputs and pearson correlations  
 
 ##### Example
 
