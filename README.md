@@ -7,12 +7,12 @@ R scripts for processing guide-Seq counts. Input expected to be raw counts from
 
 #### `PrepareScreenCounts.R`
 
-This script should be run in an interactive RStudio environment.
+This script should be run in an interactive RStudio environment.  
 Functions for normalizing counts, checking positive controls, plotting PCA and
-plotting heatmaps.
+plotting heatmaps.  
 
-Input: `mageck count` data table; guide library tsv
-Output: normalized count (DESeq2), MAUDE compatible; bin statistics matrix, MAUDE compatible
+Input: `mageck count` data table; guide library tsv  
+Output: normalized count (DESeq2), MAUDE compatible; bin statistics matrix, MAUDE compatible  
 
 ##### Dependencies
 ```
